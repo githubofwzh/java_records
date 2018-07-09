@@ -1,0 +1,13 @@
+| idea项目部署
+    |-- 部署在tomcat的项目路径:${user.home}/.IntelliJIdea/system/tomcat下
+    |-- 每个项目都有属于自己的一份tomcat配置,互不干扰
+    |-- 每个项目的配置文件夹中有一个/conf/Catalina/localhost/***.xml 文件,内容如下:
+        <?xml version="1.0" encoding="UTF-8"?>
+        <Context path="/cms" docBase="F:\projects\V2.9_test_rvs\target\xxx-web" />
+        其中,
+        |-- path是指访问此项目时,是否需要添加额外的路径,如果为空,则直接使用域名或者ip就可以访问到该项目,
+        这个值可以在idea的run/debug configurations中配置.
+        |-- docBase 是指要运行的项目的部署位置 F:\projects\V2.9_test_rvs是项目源代码的位置,
+            target是由maven构建后生成的，D:\work\项目\target\xxx-web 目录就是maven build完成之后生成的项目.
+        
+
